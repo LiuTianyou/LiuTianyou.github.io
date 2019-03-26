@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
     
     
-    <title>Hugo fabric theme</title>
+    <title>LiuTianyou&#39;s Blog</title>
     <meta name="author" content="">
     <meta name="description" content="">
     <meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link href="https://LiuTianyou.github.io/atom.xml" rel="alternate" title="Hugo fabric theme" type="application/atom+xml">
+    <link href="https://LiuTianyou.github.io/atom.xml" rel="alternate" title="LiuTianyou&#39;s Blog" type="application/atom+xml">
     <link href="https://LiuTianyou.github.io//images/fav.ico" rel="shortcut icon">
     <style>
     @charset "UTF-8";
@@ -4156,11 +4156,11 @@ body {
         <header id="header" class="inner">
 <h1 class="animated bounceInDown">
     <div id="headerbg">
-        Hugo fabric theme
+        LiuTianyou&#39;s Blog
     </div>
 </h1>
 
-<span class="subtitle">happy every day</span>
+<span class="subtitle">这个人很懒，什么也没留下</span>
 <br>
 
 
@@ -4231,6 +4231,60 @@ body {
 </div>
     </div>
         
+
+<h1 id="持久化类">持久化类</h1>
+
+<h3 id="编写规则">编写规则</h3>
+
+<ul>
+<li>持久化类提供一个无参构造方法。</li>
+<li>对属性私有，有属性提供public的get set 方法。</li>
+<li>对持化类提供唯一的标识与数据库的主键对应。</li>
+<li>持久化类属性使用包装类进行定义。</li>
+<li>持久化类不要使用final 修饰 使用fina修饰将无法使用hibernate 的延迟加载技术。</li>
+</ul>
+
+<h1 id="主键">主键</h1>
+
+<h3 id="主键分类">主键分类</h3>
+
+<ul>
+<li>自然主键：本身表中的字段。</li>
+<li>代理主键：不是实体中的字段，使用了一个与该实体不相关的 字段 成为代理</li>
+</ul>
+
+<blockquote>
+<p><strong>开发当中 尽量使用代理主键。</strong></p>
+
+<p><strong>自然主键参与到业务逻辑中，后期有可能需要修改源代码。</strong></p>
+
+<p><strong>好设计的原则  OCP 开放扩展，关闭修改。</strong></p>
+
+<h3 id="主键生成策略">主键生成策略</h3>
+
+<ul>
+<li>incerment: hibernate提供自动增长的主键，在单线程程序中使用。</li>
+<li>identity：使用数据库的自动增长机制，适用于有自动增长机制的数据库（MS ，MYSQL）</li>
+<li>sequence: 采用序列的方式，必须使用支持序列的数据库</li>
+<li>uuid ： 适用于字符串类型的主键。</li>
+<li>native：本地策略，可以在identity 和 sequence之间自动切换。</li>
+<li>assigned：hibernate 放弃主键管理，需要手动编写代码自己管理。</li>
+<li>foreign： 外部的。 一对一的一种关联映射情况下使用。</li>
+</ul>
+</blockquote>
+
+<h1 id="事务">事务</h1>
+
+<h3 id="service-层事务管理">Service 层事务管理</h3>
+
+<p>通过getCurrentSession 方法。
+需要配置</p>
+
+<pre><code> &lt;!--获取当前线程绑定的Session--&gt;
+        &lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;
+
+</code></pre>
+
     </div>
 
 <div class="meta">
@@ -4250,7 +4304,7 @@ body {
     <div style="display:inline">
     Copyright &copy; 2019
     
-    Hugo fabric theme
+    LiuTianyou&#39;s Blog
     . Powered by <a href="http://gohugo.io" target="_blank">Hugo</a> |
     Theme is <a href="https://github.com/wd/hugo-fabric">hugo-fabric</a>, fork from <a href="https://github.com/wd/hexo-fabric">hexo-fabric</a> by <a href="https://wdicc.com">me</a>
 </div>

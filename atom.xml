@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo fabric theme</title>
+    <title>LiuTianyou&#39;s Blog</title>
     <link>https://LiuTianyou.github.io/</link>
-    <description>Recent content on Hugo fabric theme</description>
+    <description>Recent content on LiuTianyou&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Mar 2019 13:33:07 +0800</lastBuildDate>
@@ -17,7 +17,11 @@
       <pubDate>Tue, 26 Mar 2019 13:33:07 +0800</pubDate>
       
       <guid>https://LiuTianyou.github.io/post/helloworld/</guid>
-      <description></description>
+      <description> 持久化类 编写规则  持久化类提供一个无参构造方法。 对属性私有，有属性提供public的get set 方法。 对持化类提供唯一的标识与数据库的主键对应。 持久化类属性使用包装类进行定义。 持久化类不要使用final 修饰 使用fina修饰将无法使用hibernate 的延迟加载技术。  主键 主键分类  自然主键：本身表中的字段。 代理主键：不是实体中的字段，使用了一个与该实体不相关的 字段 成为代理   开发当中 尽量使用代理主键。
+自然主键参与到业务逻辑中，后期有可能需要修改源代码。
+好设计的原则 OCP 开放扩展，关闭修改。
+主键生成策略  incerment: hibernate提供自动增长的主键，在单线程程序中使用。 identity：使用数据库的自动增长机制，适用于有自动增长机制的数据库（MS ，MYSQL） sequence: 采用序列的方式，必须使用支持序列的数据库 uuid ： 适用于字符串类型的主键。 native：本地策略，可以在identity 和 sequence之间自动切换。 assigned：hibernate 放弃主键管理，需要手动编写代码自己管理。 foreign： 外部的。 一对一的一种关联映射情况下使用。   事务 Service 层事务管理 通过getCurrentSession 方法。 需要配置
+ &amp;lt;!--获取当前线程绑定的Session--&amp;gt; &amp;lt;property name=&amp;quot;hibernate.current_session_context_class&amp;quot;&amp;gt;thread&amp;lt;/property&amp;gt;  </description>
     </item>
     
   </channel>
